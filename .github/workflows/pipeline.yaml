@@ -22,8 +22,7 @@ jobs:
       - name: Install dependencies front
         working-directory: ./bloglist-front
         run: npm install
-      - name: Install Fly CLI
-        run: curl -L https://fly.io/install.sh | sh
+      - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy app
         if: ${{ github.event_name == 'push' && !contains( github.event.head_commit.message, '#skip') }}
         working-directory: ./bloglist-back
