@@ -1,12 +1,13 @@
 {
-  "engines": { 
-    "node": "16.20.1" 
+  "engines": {
+    "node": "16.20.1"
   },
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^1.2.3",
+    "cross-env": "^7.0.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
