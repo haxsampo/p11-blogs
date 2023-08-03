@@ -13,17 +13,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - name: Install dependencies
+      - name: Install dependencies back
+        working-directory: ./bloglist-back
         run: npm install
- deploy:
-    needs: simple_deployment_pipeline
-    if: ${{ github.event_name == 'push' && !contains( github.event.head_commit.message, '#skip') }}
-    name: Deploy app
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: deploy app
-        run: flyctl deploy --remote-only
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - name: Install dependencies front
+        working-directory: ./bloglist-front
+        run: npm install
