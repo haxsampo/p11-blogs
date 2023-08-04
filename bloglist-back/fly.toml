@@ -29,6 +29,7 @@ primary_region = "arn"
   #kokeilut alkaa
   protocol = "tcp"
 
-[[services]]
-  internal_port = 3000
-  protocol = "http"
+[[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 3000
