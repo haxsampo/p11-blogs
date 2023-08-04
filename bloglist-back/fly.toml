@@ -24,7 +24,7 @@ primary_region = "arn"
 
 [[services]]
   protocol = ""
-  internal_port = 8080
+  internal_port = 3000 #8080
   processes = ["app"]
   #kokeilut alkaa - 
   #protocol = "tcp"
