@@ -27,9 +27,9 @@ primary_region = "arn"
   internal_port = 8080
   processes = ["app"]
   #kokeilut alkaa - 
-  protocol = "tcp"
+  #protocol = "tcp"
 
-[[services.ports]]
-    force_https = true
-    handlers = ["http"]
-    port = 3000
+#[[services.ports]]
+    #force_https = true
+   # handlers = ["http"]
+    #port = 3000
