@@ -26,3 +26,9 @@ primary_region = "arn"
   protocol = ""
   internal_port = 8080
   processes = ["app"]
+  #kokeilut alkaa
+  protocol = "tcp"
+
+[[services]]
+  internal_port = 3000
+  protocol = "http"
