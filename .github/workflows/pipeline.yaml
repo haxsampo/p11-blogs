@@ -1,4 +1,7 @@
- push:
+name: Testing+etc pipeline
+
+on:
+  push:
     branches:
       - master
   pull_request:
@@ -7,7 +10,7 @@
 
 jobs:
   simple_deployment_pipeline:
-    if: ${{ !contains( github.event.head_commit.message, '#skip-deplo') }}
+    if: ${{ !contains( github.event.head_commit.message, '#skip-') }}
     runs-on: ubuntu-20.04
     env:
       MONGODB_URI: ${{secrets.MONGODB_URI}}
