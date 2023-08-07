@@ -41,19 +41,21 @@ jobs:
           command: npm run test:e2e
           start: npm run start_test, npm run start_front
           wait-on: http://localhost:3003
-  
+
   deployment_fly:
     if: ${{ github.event_name == 'push' && !contains( github.event.head_commit.message, '#skip') }}
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
+    env:
+      MONGODB_URI: ${{secrets.MONGODB_URI}}
     steps:
-    - uses: superfly/flyctl-actions/setup-flyctl@master
-    - name: Deploy app
-      if: ${{ github.event_name == 'push' && !contains( github.event.head_commit.message, '#skip') }}
-      working-directory: ./bloglist-back
-      run: flyctl deploy --remote-only
-      env:
-        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Deploy app
+        if: ${{ github.event_name == 'push' && !contains( github.event.head_commit.message, '#skip') }}
+        #working-directory: ./bloglist-back
+        run: flyctl deploy --remote-only
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
   tag_release:
     if: ${{ github.event_name == 'push' && !contains( github.event.head_commit.message, '#skip') }}
