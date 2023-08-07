@@ -36,7 +36,7 @@ jobs:
         with:
           working-directory: ./bloglist-back
           command: npm run test:e2e
-          start: npm run start_test
+          start: npm run start_test, npm run start_front
           wait-on: http://localhost:3003
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy app
