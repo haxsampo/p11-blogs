@@ -1,0 +1,26 @@
+module.exports = {
+  env: {
+    browser: true,
+    commonjs: true,
+    es2021: true
+  },
+  extends: [
+    'plugin:react/recommended',
+    'standard'
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 'latest'
+  },
+  plugins: [
+    'react'
+  ],
+  rules: {
+    "eqeqeq": "off",
+    "comma-dangle":"off",
+    "no-unneeded-ternary":"off",
+    "object-property-newline": "off"
+  }
+}
