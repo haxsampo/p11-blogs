@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies front
         working-directory: ./bloglist-front
         run: npm install
-      - name: Check style
+      - name: Check style back
         working-directory: ./bloglist-back
+        run: npm run eslint .
+      - name: Check style front
+        working-directory: ./bloglist-front
         run: npm run eslint
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Deploy app
