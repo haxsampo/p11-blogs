@@ -15,7 +15,8 @@
     "logs:prod": "fly logs",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "getbuild": "rm -r build && cd ../bloglist-front/ && npm run build && cp -r build ../bloglist-back",
-    "eslint": "eslint"
+    "eslint": "eslint",
+    "test:e2e": "cd ../bloglist-front && npm run test:e2e"
   },
   "author": "",
   "license": "ISC",

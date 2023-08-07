@@ -23,7 +23,8 @@
     "eslint": "eslint .",
     "eslint fix": "eslint -- --fix",
     "testi": "($env:CI = 'true') -and (npm test)",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run"
   },
   "eslintConfig": {
     "extends": [
