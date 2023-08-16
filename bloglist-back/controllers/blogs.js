@@ -7,7 +7,7 @@ router.get('/', async (request, response) => {
   const blogs = await Blog
     .find({})
     .populate('user', { username: 1, name: 1 })
-
+    
   response.json(blogs)
 })
 
@@ -17,7 +17,7 @@ router.post('/', userExtractor, async (request, response) => {
     title, author, url,
     likes: likes ? likes : 0
   })
-
+  console.log("new blog here : ", blog)
   const user = request.user
   if (!user) {
     return response.status(401).json({ error: 'operation not permitted' })

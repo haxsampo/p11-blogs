@@ -1,0 +1,27 @@
+services:
+  app:
+    image: bdf
+    build:
+      context: ./bloglist-front/
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./bloglist-front/:/usr/src/app
+    ports:
+      - 3000:3000
+    #environment:
+    #  - WATCHPACK_POLLING=true
+    container_name: bloglist-front-dev
+  server:
+    image: bbd
+    container_name: bloglist-back-dev
+    build:
+      context: ./bloglist-back/
+      dockerfile: dev.Dockerfile
+      args:
+        - DOCKER_ENV = TRUE
+    volumes:
+      - ./bloglist-back/:/usr/src/app
+    ports:
+      - 3003:3003
+    environment:
+      - DOCKER_ENV = TRUE

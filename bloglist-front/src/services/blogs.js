@@ -1,5 +1,6 @@
 import axios from 'axios'
-const baseUrl = '/api/blogs'
+//const baseUrl = '/api/blogs'
+const baseUrl = "http://localhost:3003/api/blogs"
 
 let token = null
 
@@ -8,7 +9,8 @@ const setToken = newToken => {
 }
 
 const getAll = async () => {
-  const resp = await axios.get(baseUrl)
+  console.log("BASEURL: ", baseUrl)
+  const resp = await axios.get(baseUrl) //axios.get(baseUrl)
   return resp.data
 }
 

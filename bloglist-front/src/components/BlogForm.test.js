@@ -14,8 +14,8 @@ test('lomaketesti blog creation', async () => {
     //const show_button = screen.getByText('new blog')
     //await user.click(show_button)
     const titleinp = screen.getByPlaceholderText('enter blog title here')
-    const authorinp = screen.getByPlaceholderText('author here')
-    const urlinp = screen.getByPlaceholderText('and url here')
+    const authorinp = screen.getByPlaceholderText('author hereaaaaa')
+    const urlinp = screen.getByPlaceholderText('url here')
     const createButt = screen.getByText('Create')
 
     await userEvent.type(titleinp, "testi_titteli")

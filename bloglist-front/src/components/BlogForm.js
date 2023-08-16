@@ -52,7 +52,7 @@ const BlogForm = ({ createBlog }) => {
                     value={url}
                     name="Url"
                     onChange={({ target }) => setUrl(target.value)}
-                    placeholder="and url here"
+                    placeholder="and url here-saatanaaa"
                 />
             </div>
             <button id="newblog_submit" type="submit">Create</button>
