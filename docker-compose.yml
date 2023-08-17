@@ -1,0 +1,31 @@
+services:
+  app:
+    image: bfp
+    build:
+      context: ./bloglist-front
+      dockerfile: Dockerfile
+    volumes:
+      - ./bloglist-front/:/usr/src/app
+    environment:
+      - WATCHPACK_POLLING=true
+    container_name: bloglist-front-prod
+  server:
+    image: bbp
+    build:
+      context: ./todo-backend/
+      dockerfile: Dockerfile
+      args:
+        - DOCKER_ENV = TRUE
+    volumes:
+      - ./bloglist-back/:/usr/src/app
+    environment:
+      - DOCKER_ENV = TRUE
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: bloglist-rp-prod
+    depends_on:
+      - app
